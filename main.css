@@ -4,14 +4,14 @@
 
 @layer base {
     html {
-      @apply bg-gray-200 text-gray-800 cursor-default
+      @apply cursor-default
     }
-    body {
-      @apply relative min-h-screen min-w-full dark:bg-gray-600 dark:text-white
+    main {
+      @apply relative min-h-screen min-w-full text-gray-700 dark:bg-gray-600 dark:text-white
     }
     .scrollbar::-webkit-scrollbar,
     html::-webkit-scrollbar {
-      @apply w-2 bg-gray-400
+      @apply w-1 h-1 bg-gray-400
     }
     .scrollbar::-webkit-scrollbar {
       @apply rounded-full
@@ -20,19 +20,60 @@
     html::-webkit-scrollbar-thumb {
       @apply rounded-full bg-gray-800
     }
-    .card {
-      @apply shadow-lg p-5 md:p-8 rounded-md border border-slate-300 dark:border-slate-500
-    }
+    select,
+    textarea,
     input {
-      @apply py-1 px-3 bg-transparent rounded-md border-2 border-gray-400 outline-none focus:border-gray-600
+      @apply bg-black/15 dark:bg-white/15 rounded-lg py-2 px-4 outline-none min-w-0
     }
-    button {
-      @apply  px-4 py-2 uppercase tracking-wide rounded-md active:scale-95
+    #menu-ic {
+      @apply *:w-8 *:h-1 *:bg-gray-300 *:rounded-full *:my-1 inline-block opacity-100 cursor-pointer
     }
-    #nav {
-      @apply max-h-0 py-0 md:max-h-screen duration-150
+    .open#menu-ic {
+      @apply even:*:opacity-0 first:*:rotate-[405deg] last:*:-rotate-[405deg] first:*:translate-y-2 last:*:-translate-y-2 *:bg-gray-300
     }
-    #nav.open {
-      @apply max-h-screen py-2 duration-150
+    .pop {
+      @apply invisible opacity-0
+    }
+    .pop .main {
+      @apply scale-50
+    }
+    .pop.show {
+      @apply visible opacity-100
+    }
+    .pop.show .main {
+      @apply scale-100
+    }
+    #top-nav {
+      @apply py-10 text-white
+    }
+    #top-nav.stick {
+      @apply py-2 md:py-0 bg-white/90 dark:bg-black/90 text-gray-700 dark:text-white shadow-md backdrop-blur-sm
+    }
+    #top-nav.stick #menu-ic {
+      @apply *:bg-gray-700 dark:*:bg-gray-300
+    }
+    #top-nav.stick .open#menu-ic {
+      @apply *:bg-gray-700 dark:*:bg-gray-300
+    }
+    .from-left {
+      @apply translate-x-[-100px] opacity-0 invisible
+    }
+    .from-left.show {
+      @apply translate-x-0 opacity-100 visible
+    }
+    .app-btn {
+      @apply py-2 px-6 text-sm font-semibold rounded-md tracking-wide border-2 border-transparent bg-app-primary/80 text-white hover:bg-app-primary transition-all duration-500 active:scale-90 flex items-center justify-center gap-4
+    }
+    .app-btn-primary {
+      @apply py-2 px-6 text-sm font-semibold rounded-md tracking-wide bg-black/70 dark:bg-black/90 hover:text-app-primary border-2 border-transparent hover:border-app-primary transition-all duration-500 active:scale-90 flex items-center justify-center gap-4
+    }
+    .app-btn-secondary {
+      @apply py-2 px-6 text-sm font-semibold rounded-md tracking-wide border-2 text-app-primary border-app-primary hover:text-white hover:bg-app-primary transition-all duration-500 active:scale-90 flex items-center justify-center gap-4
+    }
+    #scrollup-btn {
+      @apply translate-y-4 opacity-0 invisible
+    }
+    #scrollup-btn.show {
+      @apply translate-y-0 opacity-100 visible
     }
 }

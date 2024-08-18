@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: ["./**/*.{html,js,php}"],
   theme: {
     container: {
@@ -19,9 +20,14 @@ module.exports = {
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
+      },
+      colors: {
+        "app-primary": '#D38154'
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animated')
+  ],
 }
 
